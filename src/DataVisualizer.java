@@ -1,24 +1,12 @@
 import jdk.swing.interop.SwingInterOpUtils;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class DataVisualizer {
-
-    public static void table(String Title, String headerName, String name){
-        System.out.printf("%33s%n", Title);
-        System.out.printf("%-20s|", headerName);
-        System.out.printf("%23s%n", name);
-        for(int i = 0; i <= 43; i++){
-            System.out.print("-");
-        }
-        System.out.println();
-
-    }
     public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
-        String title, headerName, name, fullString;
+        String title, headerName, fullString;
         int number, commaNum =0, commaVal;
         Scanner inSS = null;
         ArrayList<String> stringComponents = new ArrayList<>();
@@ -37,37 +25,19 @@ public class DataVisualizer {
         System.out.println("You entered: " + headerName);
         System.out.println();
         System.out.println("Enter the column 2 header:");
-        name = scnr.nextLine();
-        System.out.println("You entered: " + name); //
+        headerName = scnr.nextLine();
+        System.out.println("You entered: " + headerName); //
         System.out.println();
 
         System.out.println("Enter a data point (-1 to stop input):");
         fullString = scnr.nextLine();
         while(!(fullString.equals("-1"))) {
             if(fullString.contains(",")) {
-                for(int i = 0; i < fullString.length(); i++){
-                    if(fullString.charAt(i) == ','){
-                        commaNum++;
-                    }
-                    if(commaNum > 1){
-                        System.out.println("Error: Too many commas in input.");
-                        System.out.println();
-                        System.out.println("Enter a data point (-1 to stop input):");
-
-                        fullString = scnr.nextLine();
-                    }
-                }
-
                 commaVal = fullString.indexOf(",");
-                stringComponents.add(fullString.substring(0, commaVal));
-                try {
-                    integerComponents.add(Integer.parseInt(fullString.substring(commaVal + 1)));
-                }
-                catch (Exception e){
-                    System.out.println("Error: Comma not followed by an integer.");
-                    System.out.println();
 
-                }
+                stringComponents.add(fullString.substring(0, commaVal));
+
+                integerComponents.add(Integer.parseInt(fullString.substring(commaVal + 1)));
                 for(int i = 0; i<fullString.length();i++){
                     commaNum += fullString.indexOf(",");
                 }
@@ -86,7 +56,7 @@ public class DataVisualizer {
             System.out.println("Enter a data point (-1 to stop input):");
             fullString = scnr.nextLine();
         }
-        table(title, headerName, name);
+
 
     }
 }
