@@ -1,3 +1,5 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.Scanner;
 
 public class RecursivelyPrintFactorial {
@@ -15,13 +17,16 @@ public class RecursivelyPrintFactorial {
             System.out.print(factCounter + " * ");
             nextCounter = factCounter - 1;
             nextValue = nextCounter * factValue;
-            while (!(nextCounter >= 1)){
-                nextCounter = factCounter - 1;
-                System.out.println(nextCounter);
-                nextCounter = factCounter - 1;
+            while((nextCounter > 1)){
+                System.out.print(nextCounter + " * ");
+                nextCounter--;
+                nextValue = nextValue * nextCounter;
             }
-
-
+            if(nextCounter == 1){
+                System.out.print(nextCounter + " = ");
+                System.out.print(nextValue);
+            }
+            /* Your solution goes here  */
         }
     }
 
@@ -33,5 +38,4 @@ public class RecursivelyPrintFactorial {
         System.out.print(userVal + "! = ");
         printFactorial(userVal, userVal);
     }
-    //Lets see this new addition to Git
 }
