@@ -40,5 +40,12 @@ public class NumberPattern {
         printNumPattern(num1, num2);
         System.out.println();
         System.out.println(frac(num1));
+        for(int i = 0; i<num1; i++){
+            System.out.print("-*-");
+        }
+        System.out.println();
+        for(int i = 0; i<num2; i++){
+            System.out.print("*-*");
+        }
     }
 } 
