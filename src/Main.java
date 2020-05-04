@@ -51,13 +51,15 @@ public class Main {
      * For example, if given "abc", the method would return 294.
      */
     public static int totalWord(String word){
-        if(word == null || word.length() <= 1){
-            return 1;
+        if(word.equals("")){
+            return 0;
         }
 
-        int sum;
-        sum = word.charAt(0) + word.charAt(1);
-        return sum;
+        if (word.charAt(0)=='-' || word.charAt(0)=='+') {
+            int sign = word.charAt(0)=='+' ? 1 : -1;
+            return totalWord(word.substring(1)) * sign;
+        }
+        return totalWord(word);
 
     }
 
@@ -75,7 +77,7 @@ public class Main {
          * Consider using the a for loop to call the method recursively a certain number of times with different parameters, so you cover all permutations.
          */
         public static void main(String[] args) {
-            String word = "hello";
+            String word = "abc";
             System.out.println(stringClean(word));
             System.out.println(reverseString(word));
             System.out.println(totalWord(word));

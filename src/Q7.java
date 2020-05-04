@@ -23,17 +23,27 @@ public class Q7
         int tempVal;
         depth--;
         if(depth == 0) return;
-        if(values.length >= 1) {
+        else if(values.length >= 1) {
             if (start >= 0 && start < values.length) {
-                for (int i = start; i < values.length; i++) {
-                    if (values[i - 1] > values[i]) {
-                        tempVal = values[i - 1];
-                        values[i - 1] = values[i];
-                        values[i] = tempVal;
+                for (int i = 0; i < values.length; i++) {
+                    for (int j = start; j < values.length; j++) {
+                        if (values[j - 1] > values[j]) {
+                            tempVal = values[j - 1];
+                            values[j - 1] = values[j];
+                            values[j] = tempVal;
                         }
                     }
                 }
+                for(int i = 0; i < values.length; i++){
+                    System.out.println(values[i]);
+                }
+                //selectionSort(values, start, depth);
             }
         }
-        //Place your code below this comment.
     }
+    public static void main(String args []){
+        int [] arrNum = {5, 4, 3, 2, 1};
+        selectionSort(arrNum, 2, 6);
+    }
+    //Place your code below this comment.
+}
