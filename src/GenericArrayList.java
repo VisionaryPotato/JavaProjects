@@ -47,9 +47,9 @@ public class GenericArrayList<T> {
 
 
     private void resizeData(int newSize) {
-        T [] newString = (T[]) new Object[newSize];
-        newString = (T[])Arrays.copyOf(data, newSize);
-        data = (T[])Arrays.copyOf(newString, newSize);
+        T [] newString;
+        newString = Arrays.copyOf(data, newSize);
+        data = Arrays.copyOf(newString, newSize);
         size = newSize;
     }
 
@@ -62,7 +62,7 @@ public class GenericArrayList<T> {
      * Strings that are actually in the array.
      */
     public GenericArrayList(int initialCapacity) {
-        data = (T[]) new Object[(int) initialCapacity];
+        data = (T[]) new Object[initialCapacity];
         size =  initialCapacity + 1;
     }
 
@@ -128,14 +128,6 @@ public class GenericArrayList<T> {
      * Remember to use .equals() instead of == when comparing one String
      * with another.
      */
-    public boolean contains(T str) {
-        for(int i = 0; i <= size() - 1; i++) {
-            if((data[i]).equals(str)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
 
 
