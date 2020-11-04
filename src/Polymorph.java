@@ -19,7 +19,7 @@ public class Polymorph{
 
     public static void main(String[] args){
         ArrayList<Integer> al = new ArrayList<>();
-        al.add(new Integer(3));
+        al.add(new Integer(4));
         System.out.println(max(al));
 
     }
